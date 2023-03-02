@@ -65,7 +65,27 @@
     <div id="inputContainer">
       <!-- Campos de entrada se añadirán aquí -->
     </div>
-    <input type="submit" value="Submit">
+
+    <button type="button" class="send" id="send">
+      Generar
+  </button>
   </form>
+
+  <script>
+    $(document).ready(function(){
+      $('#send').click(function(){
+            $.ajax({
+              url : '/python/cgi-enabled/python-script.py',
+              method : 'get',
+              data : {},
+              dataType : 'json',
+              success : function(data)
+              {
+                console.log(data)
+              }
+          });    
+    });
+    });
+    </script>
 </body>
 </html>
